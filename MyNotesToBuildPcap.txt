@@ -1,0 +1,66 @@
+//TCAP built using
+32-bit: ActiveTcl 8.4, ActiveTcl 8.6, Scotty
+64-bit: ActiveTcl 8.4  ActiveTcl 8.6
+
+//To Do
+Cygwin: 32-bit
+Linux:	32-bit
+
+Building Tcl Pcap in Windows with Visual Studio:
+================================================
+1. Download Pcap source folder  
+2. Download Wpdpack from Wireshark site
+3. Download Tcl with include files and library
+4. Using Visual Studio, open the Pcap.dsp project in Pcap folder
+5. Visual Studio -> Project -> Properties -> Configuration Properties
+	-> Linker -> Input -> Additional Dependencies: 
+		o Include library list from below
+		o preprocessor input from below
+6. tclstubXX is in Tcl/Include folder
+7. pcap.h is in Wpdpack/include folder
+8. Tcl library in Tcl/lib; winpcap in Wpdpack/lib or Wpdpack/lib/x64
+9. Go to Visual Studio -> Tools -> Options and  do the following
+10. Choose 32 bit or 64 platform Then 
+11. Project Solutions -> VC++ Directories Point Tcl and Wpdpack
+	include and lib folders.
+12. Now build and test pcap
+
+Library List:
+=============
+odbc32.lib
+odbccp32.lib
+tclstub84.lib //change the version when needed
+tcl84.lib   //change the version when needed
+wpcap.lib	//change the pointer to x64 when appropriate
+ws2_32.lib
+
+msvcrt.lib	 Exclude //not needed any more
+
+Pre_Processor List:
+===================
+WIN32			//use this even when you build 64 bit versions!
+_DEBUG
+_WINDOWS
+_USRDLL
+_TCL_USE_STUBS
+PCAP_EXPORTS
+HAVE_REMOTE			//not needed anymore, still can be added
+TCL_VERSION8DOT6   //use this only when you compile with Tcl 8.6
+
+
+Building Tcl Pcap in Cygwin
+===========================
+Reference: http://mathieu.carbou.free.fr/wiki/index.php?title=How_to_install_Winpcap_/_Libpcap_under_Cygwin
+
+1. Download and unzip WpdPack_4_0_1.zip. 
+2. Copy libraries like this:
+	WpdPack\Lib\libwpcap.a to cygwin\lib\
+3. Create a folder cygwin\usr\include\pcap\ 
+4. Copy all headers from WpdPack\Include to cygwin\usr\include\pcap\ 
+5. Be sure you have installed Winpcap libraries and that they are in    your path by typing:
+	which Packet.dll
+	which wpcap.dll
+6. Compile the executable as follows:
+	gcc iflist.c -I/usr/include/pcap -lwpcap -o iflist
+7. Compile the library as follows
+	

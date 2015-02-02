@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tcap", "Tcap\Tcap.vcproj", "{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		debug32|Win32 = debug32|Win32
+		debug32|x64 = debug32|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.Debug|Win32.Build.0 = Debug|Win32
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.Debug|x64.ActiveCfg = Debug|x64
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.Debug|x64.Build.0 = Debug|x64
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.debug32|Win32.ActiveCfg = debug32|Win32
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.debug32|Win32.Build.0 = debug32|Win32
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.debug32|x64.ActiveCfg = Debug|x64
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.debug32|x64.Build.0 = Debug|x64
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.Release|Win32.ActiveCfg = Release|Win32
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.Release|Win32.Build.0 = Release|Win32
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.Release|x64.ActiveCfg = Release|x64
+		{C7614FE3-B4BE-48F7-A5D5-299A14EEA3F5}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1258 @@
+# This is the regression test for Tcl Pcap (Tcap)
+# User simply need to call the top level procedure regtest
+# With two parameters: IP address of the local host
+# IP address of the remote host. 
+# Before you initiate the test, start 2 rpcapd on the remote
+# host one with default port 2002, and another one with non-
+# default port 5000. Similarly start two rpcapd on your local
+# host also with identical port numbers.
+# Tcap does not support user id, password option of rpcapd!
+# Top level procedure - all test cases are called from here
+# Validation of test result need to be performed by user now.
+# There is no automated validation. The output of each test
+# is redirected to individual test file1 user defines file name .
+# For this test paramets are set to port number i 3000,filter icmp,count 3
+# snaplen 65535,timeout 25000,ipv6,id.
+# Change the configuration of parameters before performing test.
+
+
+#load tcap.dll
+	load tcap.dll
+	set i 3000
+	set filter icmp
+	set count 3
+	set snaplen 65535
+	set timeout 25000
+	set ipv6 fe80::406a:2949:dc85:d9e4%8
+	set version [tcap version]
+	set id 3
+	set lip 192.168.1.108
+	set rip 192.168.1.100
+	puts "With configured as $filter,$count,$snaplen,$i"
+	
+proc regtest1 { file1 } {
+		global version
+		global filter
+		global snaplen
+		global timeout
+		global ipv6
+		global id 
+		global count 
+		global i
+		global lip
+		global rip
+		
+		set file1 [open $file1.doc "w"]
+		puts $file1 "Opening Output file1 $file1"
+		puts $file1 $version
+		
+		puts $file1 "Start of test1-10 \n"
+		test1 $file1
+		puts $file1 "===================\n"
+		test2 $file1
+		puts $file1 "===================\n"
+		test3 $file1
+		puts $file1 "===================\n"
+		test4 $lip $file1
+		puts $file1 "===================\n"
+		test5 $file1
+		puts $file1 "===================\n"
+		test6 $file1
+		puts $file1 "===================\n"
+		test7 $lip $file1
+		puts $file1 "===================\n"
+		test8 $lip $file1
+		puts $file1 "===================\n"
+		test9 $lip $file1
+		puts $file1 "===================\n"
+		test10 $lip $file1
+		puts $file1 "===================\n"
+		test11 $lip $file1
+		puts $file1 "===================\n"
+		test12 $lip $file1
+		puts $file1 "===================\n"
+		test13 $lip $file1
+		puts $file1 "===================\n"
+		test14 $lip $file1
+		puts $file1 "===================\n"
+		test15 $lip $file1
+		puts $file1 "===================\n"
+		test16 $lip $file1
+		puts $file1 "===================\n"
+		test17 $lip $file1
+		puts $file1 "===================\n"
+		test18 $lip $file1
+		puts $file1 "===================\n"
+		test19 $lip $file1
+		puts $file1 "===================\n"
+		test20 $lip $file1
+		puts $file1 "===================\n"
+		test21 $lip $file1
+		puts $file1 "===================\n"
+		test22 $lip $file1
+		puts $file1 "===================\n"
+		test23 $lip $file1 
+		puts $file1 "===================\n"
+		test24 $lip $file1 
+		puts $file1 "===================\n"
+		test25 $lip $file1 
+		puts $file1 "===================\n"
+		test26 $lip $file1
+		puts $file1 "===================\n"
+		test27 $lip $file1
+		puts $file1 "===================\n"
+		test28 $lip $file1
+		puts $file1 "===================\n"
+		test29 $lip $file1
+		puts $file1 "===================\n"
+		test31 $lip $file1					 
+		puts $file1 "===================\n"
+		test32 $lip $file1
+		puts $file1 "===================\n"
+		test33 $lip $file1 
+		puts $file1 "===================\n"
+		test34 $lip $file1 
+		puts $file1 "===================\n"
+		test35 $lip $file1 
+		puts $file1 "===================\n"
+		test36 $lip $file1
+		puts $file1 "==================\n"
+		test37 $lip $file1 
+		puts $file1 "==================\n"
+		test38 $lip $file1 
+		puts $file1 "==================\n"
+		test39 $rip $file1
+		puts $file1 "===================\n"
+		test40 $rip $file1
+		puts $file1 "===================\n"
+		test41 $rip $file1 
+		puts $file1 "===================\n"
+		test42 $rip $file1
+		puts $file1 "===================\n"
+		test43 $rip $file1 
+		puts $file1 "===================\n"
+		test44 $rip $file1 
+		puts $file1 "===================\n"
+		test45 $rip $file1 
+		puts $file1 "===================\n"
+		test46 $rip $file1 
+		puts $file1 "===================\n"
+		test47 $rip $file1 
+		puts $file1 "===================\n"
+		test48 $rip $file1 
+		puts $file1 "===================\n"
+		test49 $rip $file1 
+		puts $file1 "================== \n"
+		test50 $rip $file1 
+		puts $file1 "================== \n"
+		test51 $rip $file1 
+		puts $file1 "================== \n"
+		test52 $rip $file1 
+		puts $file1 "================== \n"
+		test53 $rip $file1 
+		puts $file1 "================== \n"
+		test54 $rip $file1 
+		puts $file1 "================== \n"
+		test55 $rip $file1 
+		puts $file1 "================== \n"
+		test56 $rip $file1 
+		puts $file1 "================== \n"
+		test57 $rip $file1 
+		puts $file1 "================== \n"
+		test58 $file1
+		puts $file1 "================= \n"
+		test59 $rip $file1
+		puts $file1 "================= \n"
+		test60 $i $file1
+		puts $file1 "================= \n"
+		close $file1 
+}
+
+proc test1 {file1} {
+	puts $file1 "Start of test1: help"
+	set out [tcap help]
+	puts $file1 $out
+	puts $file1 "End of test1: help"  
+}
+
+proc test2 {file1} {
+	puts $file1 "Start of test2: -h"
+	set out [tcap ?]
+	puts $file1 $out
+	puts $file1 "End of test2: -h"  
+}
+
+proc test3 {file1} {
+	puts $file1 "Start of test3: -help"
+	set out [tcap -help]
+	puts $file1 $out
+	puts $file1 "End of test3: -help"  
+}
+
+
+proc test4 {lip file1} {
+	
+	global i
+	global filter 
+	global count 
+	global snaplen 
+	puts $file1 "Start of test4: tcap info"
+	puts $file1 "With no handles"
+	set out [tcap info]
+	puts $file1 $out
+	
+	set hndl1 [tcap open -ip $lip]
+	puts $file1 "With one handle"
+	set out [tcap show]
+	puts $file1 $out
+
+	set hndl2 [tcap open -ip $lip]
+	puts $file1 "With two handles"
+	set out [tcap info $hndl2]
+	puts $file1 $out
+	
+	puts $file1 "with default parameters"
+	set out [tcap info $hndl1]
+	puts $file1 $out
+	tcap close $hndl1
+	
+	puts $file1 "after closing one handle"
+	set out [tcap info]
+	puts $file1 $out
+	
+	puts $file1 "handle 2 information"
+	set out [tcap info $hndl2]
+	puts $file1 $out
+	
+	puts $file1 "Listing tcap"
+	set list [tcap list]
+	puts $file1 $list
+	
+	puts $file1 "with non-default parameters"
+	tcap set $hndl2 -out test4 
+	tcap set $hndl2 -format decimal
+	tcap set $hndl2 -promis n 
+	tcap set $hndl2 -filter $filter
+	tcap set $hndl2 -snap $snaplen
+	tcap set $hndl2 -ca "puts %H"  
+	set out [tcap info $hndl2]
+	puts $file1 $out
+	tcap close $hndl2
+	
+	puts $file1 "after closing all the handles\n"
+	set out [tcap info]
+	
+	puts $file1 "error case"
+	if { [catch {set out [tcap pin]}] } {
+		puts $file1 "Error condition $out"
+	}
+	puts $file1 "End of test4: tcap info"  
+}
+
+proc test5 {file1} {
+	puts $file1 "Start of test5: version"
+	puts $file1 "tcap version"
+	set out [tcap version]
+	puts $file1 $out
+	
+	puts $file1 "tcap ve -  error case"
+    if { [catch {[tcap ve]} out] } {
+		puts $file1 "Syntax Error, Unknown Option/parameter, $out\n"
+	}	
+	puts $file1 "End of test5: version"  
+}
+
+proc test6 {file1} {
+	puts $file1 "Start of test6: incorrect option"
+	puts $file1 "with catpure"
+	if { [catch {[tcap catpure]} out] } {
+		puts $file1 "Syntax Error, Unknown Option/parameter, $out"
+	}
+	
+	puts $file1 "with XXX -ip 192.168.1.1"
+	if { [catch {[tcap XXX -ip 192.168.1.1]} out] } {
+		puts $file1 "Syntax Error, Unknown Option/Parameter, $out"
+	}
+	puts $file1 "End of test6: incorrect option "
+}
+
+proc test7 {lip file1} {
+	puts $file1 "Start of test7: open"
+	puts $file1 "Open with local interface"
+	set hndl1 [tcap open -ip $lip]
+	set out [tcap info $hndl1]
+	tcap close $hndl1
+	puts $file1 $out
+	
+	puts $file1 "Checking the limit on the number of handles"
+	for {set i 0} {$i < 12} {incr i} {
+		if { [catch {[tcap open -ip $lip]} out] } {
+			puts $file1 "Error, $out"
+		}
+	}
+	puts $file1 "info on all 10 handles"
+	for {set i 0} {$i < 10} {incr i} {
+		set out [tcap info tcap$i]
+		puts $file1 $out
+	}
+	for {set i 0} {$i < 12} {incr i} {
+		if { [catch {[tcap close tcap$i]} out] } {
+			puts $file1 "Error, $out"
+		}
+	}
+	
+	puts $file1 "End of test7: open"
+}
+
+
+proc test8 { lip file1} {
+	global i
+	global filter 
+	global count 
+	global snaplen 
+	puts $file1 "Start of test8:capturing single packets locally"
+	puts $filter 
+	set handle [tcap open -ip $lip]
+	tcap set $handle -filter $filter
+	set frame [tcap capture $handle]
+	puts $file1 $frame 
+	tcap close $handle
+	puts $file1 "End of test8:capturing single packets "
+}
+
+proc test9 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen 
+	puts $file1 "Star of test9:count set to 10 packets locally-count should be always followed by a callback function " 
+	set handle [tcap open -ip $lip]
+	tcap set $handle -filter $filter
+	set frame [tcap capture $handle]
+	puts $file1 $frame
+	tcap close $handle 
+	puts $file1 "End of test9 "
+}
+
+proc test10 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen 
+	puts $file1 "Start of test10:capturing packets with ICMP filter locally"
+	set handle1 [tcap open -ip $lip]
+	tcap set $handle1 -filter $filter 
+	set frame [tcap capture $handle1]
+	puts $file1 $frame 
+	tcap close $handle1
+	puts $file1 "End of test10 "
+}
+
+proc test11 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen 
+	puts $file1 "Start OF test11 :capturing packets with promiscuous mode OFF with callback function \n"
+	set handle2 [tcap open -ip $lip]
+	tcap set $handle2 -filter $filter 
+	tcap set $handle2 -promiscuous n 
+	set frame [tcap capture $handle2]
+	puts $file1 $frame
+	tcap close $handle2
+	puts $file1 "End of test14 "
+}
+
+proc test12 { lip file1 } { 
+	global i
+	global filter 
+	global count 
+	global snaplen 
+	puts $file1 "Start of test12 : capturing packets with promiscuous mode OFF \n"
+	set handle3 [tcap open -ip $lip]
+	tcap set $handle3 -filter $filter 
+	tcap set $handle3 -promiscuous n 
+	set frame [tcap capture $handle3]
+	puts $file1 $frame 
+	tcap close $handle3
+	puts $file1 "End of test12 "
+}
+
+proc test13 { lip file1 } {
+    global i
+	global filter 
+	global count 
+	global snaplen 
+	puts $file1 "start of test13 : capturing packets with time-out of 2000 ms "
+	set handle4 [tcap open -ip $lip]
+	tcap set $handle4 -filter $filter 
+	set frame [tcap capture $handle4]
+	puts $file1 $frame
+	tcap close $handle4 
+	puts $file1 "End of test13 "
+}
+
+proc test14 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen 
+	puts $file1 "start of test14 : capturing packets with hexadecimal and promiscuous mode ON \n"
+	set handle5 [tcap open -ip $lip]
+	tcap set $handle5 -filter $filter 
+	tcap set $handle5 -timeout 3000 
+	tcap set $handle5 -format hex 
+	tcap set $handle5 -promiscuous y 
+	
+	set frame [tcap capture $handle5]
+	puts $file1 $frame
+	tcap close $handle5 
+	puts $file1 "End of test14 "
+}
+
+proc test15 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen 
+	puts $file1 "start of test15 : capturing packets with decimal format and promiscuous mode OFF  \n "
+	set handle6 [tcap open -ip $lip]
+	tcap set $handle6 -filter $filter 
+	tcap set $handle6 -format dec 
+	tcap set $handle6 -promiscuous n 
+	set frame [tcap capture $handle6]
+	puts $file1 $frame  
+	tcap close $handle6
+	puts $file1 "End of test15 "
+}
+
+proc test16 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen 
+	puts $file1 "start of test16 : capturing packets with decimal format \n "
+	set handle7 [tcap open -ip $lip]
+	tcap set $handle7 -filter $filter 
+	tcap set $handle7 -format dec 
+	set frame [tcap capture $handle7]
+	puts $file1 $frame
+	tcap close $handle7
+	puts $file1 "End of test16 "
+}
+
+
+#Test using calling function inside a call back function .
+proc test17 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "test17 Stats for handle \n"
+	set handle [tcap open -ip $lip ]
+	set stat [tcap stats $handle ]
+	puts $file1 $stat
+	tcap close $handle 
+	puts $file1 "End of stats test17 \n"
+}
+
+proc test18 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Test18 for calling proc inside a callback \n"
+	set handle [tcap open -ip $lip ]
+	set stat [tcap stats $handle ]
+	puts $file1 $stat
+	tcap set $handle -count $count 
+	tcap set $handle -ca {puts $file1 "%H"}
+	set loop [ tcap loop $handle ]
+	puts $file1 $loop 
+	tcap close $handle
+	puts $file1 "End of call back proc \n"
+}
+
+#Test using Boundary conditions/snapshot lenght i.e with 0 initial and 1 - 65535 range in test 32 on local machine
+proc test19 {lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test19:with snaplen zero \n"
+	set handle [tcap open -ip $lip ]
+	if {[catch {[tcap set $handle -snaplen 0]} errMsg]} {
+		puts $file1 "snaplen range should be between 1 to 65535 : $errMsg\n"
+	}
+	tcap close $handle  
+	puts $file1 "End of test19 \n"
+}
+
+proc test20 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test20:with snaplen 1 \n"
+	set handle [tcap open -ip $lip]
+	tcap set $handle -filter $filter 
+	tcap set $handle -snaplen $snaplen 
+	set frame [tcap capture $handle]
+	puts $file1 $frame 
+	tcap close $handle
+	puts $file1 "End of test20 \n"
+}
+
+#Test21-30
+
+proc test21 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test21:with snaplen 65535 \n"
+	set handle [tcap open -ip $lip]
+	tcap set $handle -filter $filter 
+	tcap set $handle -snaplen $snaplen 
+	set frame [tcap capture $handle]
+	puts $file1 $frame 
+	tcap close $handle
+	puts $file1 "End of test21 \n"
+}
+
+
+#Error detection on various parameters of tcap 
+proc test22 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test22 :invalid dump file1 "
+	set handle [tcap open -ip $lip]
+	set out [tcap info $handle]
+	puts $file1 $out
+	 
+	puts $file1 "Error test using invalid Dumpfile1 \n"
+	
+	if {[catch {[tcap open -infile1 tcapfile1]} errMsg]} {
+		puts $file1 "Invalid Dump file1 tcapdumpfile1 : $errMsg \n"
+	}
+	tcap close $handle
+	puts $file1 "End of test22 \n" 
+}
+
+#invalid packet data 
+proc test23 {lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Sending Invalid Packet data"
+	set handle [tcap open -ip $lip]
+	set out [tcap info $handle]
+	puts $file1 $out 
+	 
+	puts  $file1 "Error test for sending invalid packet data \n"
+	
+	if {[catch {[tcap send $handle "ff00dd0000"]} errMsg]} {
+		puts $file1 "Invalid packet string sent to the handle : $errMsg \n"
+	}
+	tcap close $handle 
+	puts $file1 "End of test23 \n"
+}
+
+#Tcap no call back ,for count with 5 callback is needed to capture 5 frames .
+proc test24 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 " Error in capturing packets without callback \n"
+	set handle [tcap open -ip $lip]
+	set out [tcap info $handle]
+	puts $file1 $out 
+	tcap set $handle -count $count 
+	
+	puts $file1 "Error test24 for checking of loop back \n"
+	
+	if {[catch {[tcap loop $handle]} errMsg]} {
+		puts $file1 "Pls enter callback function while setting $handle: $errMsg"
+	}
+		tcap close $handle 
+		puts $file1 "End of test24 \n"
+}
+	
+#Cannot send pkt data to remote destination : due to incorrect ip or server request time-out 
+
+
+#tcap invalid handle 
+proc test25 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Error test on invalid handle \n"
+	set handle [tcap open -ip $lip]
+	set out [tcap info]
+	puts $file1 $out
+	
+	if {[catch {[tcap set tcap4 -filter $filter]} errMsg]} {
+		puts $file1 "Invalid handle entered :$errMsg \n"
+	}
+		tcap close $handle
+		puts $file1 "End of test25 \n"
+}
+
+#Tcap list handle error :
+
+
+#Tcap no stats for file1 type error 
+proc test26 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Could not find stats for file1 type \n"
+	set handl [tcap open -infile tcap0Dumpfile]
+	if {[catch {[tcap stats $handl]} errMsg]} {
+		puts $file1 "Couldn't find stas for file1 type : $errMsg \n"
+	}
+	tcap close $handl
+	puts $file1 "End of test26 \n"
+}
+
+#tcap invalid interface id 
+proc test27 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Interface not found \n"
+	
+	if {[catch {[tcap open -id 40886]} errMsg]} {
+		puts $file1 "Invalid interface : $errMsg \n "
+	}
+	puts $file1 "End of test27 \n"
+}
+
+#tcap loop requires a specific call back function 
+proc test28 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Loop requires a callback function \n"
+	set handle [tcap open -ip $lip]
+	tcap set $handle -count $count
+	tcap set $handle -filter $filter 
+	if {[catch {[tcap loop $handle ]} errMsg]} {
+		puts $file1 "callback function is required to generate a loop : $errMsg"
+	}
+	tcap close $handle
+	puts $file1 "End of test28 \n"
+}
+
+#Unknown option in tcap 
+proc test29 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Tcap unknown option executed \n"
+	
+	if {[catch {[tcap open]} errMsg]} {
+		puts $file1 "Unknown option : $errMsg"
+	}
+	puts $file1 "End of test29 \n"
+}
+
+#No stats for file1 type 
+proc test31 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Tcap no stats for file1 type \n"
+	
+	if {[ catch {[tcap stats tcap1]} errMsg]} {
+	puts $file1 "No stats for file1 type : $errMsg "
+	}
+	puts $file1 "End of test31 \n"
+}
+
+#Error opening file1 
+proc test32 { lip file1 } { 
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Error Opening file1 \n"
+	
+	if {[ catch {[ tcap open -infile1 tcap10Dumpfile1]} errMsg]} {
+		puts $file1 "Cannot open dump file1 due : $errMsg"
+	}
+	
+	puts $file1 "End of test32 \n"
+}
+
+#Error capture time-out 
+proc test33 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 " Error capture timeout \n"
+	set handle [tcap open -ip $lip]
+	
+	if {[catch {[tcap set $handle -filter $filter -timeout 1]} errMsg]} {
+		puts $file1 "Capture Timeout : $errMsg"
+	}
+	tcap close $handle 
+	puts $file1 "End of test33 \n"
+}
+
+#tcap unable to compile error 
+proc test34 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Error in syntax \n"
+	set handle [tcap open -ip $lip]
+	
+	if {[catch {[tcap ser $handle -filter 0 ]} errMsg]} {
+		puts $file1 "Error in syntax : $errMsg "
+	}
+	tcap close $handle 
+	puts  $file1 "End of test34 \n"
+}
+
+proc test35 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "opening handle with interface id \n"
+	if {[catch {[set handle [tcap open -id "rpcap://\\Device\\NPF_{A6EEB94A-2E91-4F4F-AAEB-1A39BEC3BF0F}"]]} errMsg]} {
+		puts $file1 "$errMsg "
+	}
+	puts $file1 "End of test35 \n"
+}
+
+#Assigning large value to the count such as 10000 
+proc test36 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test36 with count 10000 " 
+	set handle [tcap open -ip $lip]
+	tcap set $handle -count $count
+	tcap set $handle -filter $filter 
+	tcap set $handle -snaplen 65535
+	tcap set $handle -format decimal 
+	tcap set $handle -ca {puts $file1 "%D"}
+	tcap loop $handle
+	puts $file1 "stored"
+	tcap close $handle 
+	puts $file1 "End Of Test36 \n"
+}
+
+proc test37 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test37 with count 20000"
+	set handle [tcap open -ip $lip ]
+	tcap set $handle -count $count 
+	tcap set $handle -filter $filter 
+	tcap set $handle -snaplen 65535
+	tcap set $handle -format hex
+	tcap set $handle -ca {puts $file1 "%H"}
+	tcap loop $handle
+	puts $file1 "Stored"
+	tcap close $handle 
+	puts $file1 "End of test37 \n"
+}
+
+proc test38 { lip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test38 "
+	set handle [tcap open -ip $lip]
+	tcap set $handle -count $count 
+	tcap set $handle -filter $filter 
+	tcap set $handle -snaplen 65535
+	tcap set $handle -format hex 
+	tcap set $handle -ca {puts $file1 "%D"}
+	tcap loop $handle
+	puts $file1 "loop stored" 
+	tcap close $handle 
+	puts $file1 "End of test38 \n"
+}
+
+#Test on remote Machine 
+proc test39 {rip file1} {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test39: open"
+	puts $file1 "Open with remote interface with default portnum"
+	set hndl1 [tcap open -host $rip -port $i ]
+	set out [tcap info $hndl1]
+	puts $file1 $out
+	tcap close $hndl1
+	
+	
+	puts $file1 "Checking the limit on the number of handles"
+	for {set k 0} {$k < 12} {incr k} {
+		if { [catch {[tcap open -host $rip -port $i]} out] } {
+			puts $file1 "Error, $out"
+		}
+	}
+	puts $file1 "info on all 10 handles"
+	for {set k 0} {$k < 10} {incr k} {
+		set out [tcap info tcap$k]
+		puts $file1 $out
+	}
+	for {set k 0} {$k < 12} {incr k} {
+		if { [catch {[tcap close tcap$k]} out] } {
+			puts $file1 "Error, $out"
+		}
+	}
+	puts $file1 "End of test39: open "
+}
+
+proc test40 {rip file1} {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test40:list"
+	puts $file1 "List with remote interface with default portnum"
+	set out [tcap list -host $rip -port $i]
+	puts $file1 $out
+	
+	puts $file1 "invalid remote host"
+	if { [catch {[tcap list -rip 192.168.1.1]} errMsg] } {
+		puts $file1 "Error, $errMsg "
+	}
+	puts $file1 "End of test40: list"
+}
+
+proc test41 {rip file1} {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test41:list"
+	puts $file1 "List with remote interface with default portnum"
+	set out [tcap list ]
+	puts $file1 $out
+	
+	puts $file1 "invalid remote host"
+	if { [catch {[tcap list -rip 192.168.1.1]} out] } {
+		puts $file1 "Error,$out"
+	}
+
+	puts $file1 "End of test41:list"
+}
+
+proc test42 { rip file1} {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test42 : packets on Remote Machine \n"
+	set handle [tcap open -host $rip -port $i]
+	tcap set $handle -filter $filter
+	tcap set $handle -promiscuous y
+	set frame [tcap capture $handle]
+	puts $file1 $frame 
+	#Frames captured on $handle.
+	tcap close $handle
+	puts $file1 "End of test42 "
+}
+
+proc test43 { rip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test43 :count set to 10 packets on Remote Machine \n"
+	set handle [tcap open -host $rip -port $i]
+	tcap set $handle -filter $filter
+	tcap set $handle -count $count
+	set frame [tcap capture $handle]
+	puts $file1 $frame
+	tcap close $handle 
+	puts $file1 "End of test43"
+}
+
+proc test44 { rip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "Start of test44 : capturing packets with $filter filter on Remote Machine \n"
+	set handle1 [tcap open -host $rip -port $i]
+	tcap set $handle1 -filter $filter
+	set frame [tcap capture $handle1]
+	puts $file1 $frame 
+	tcap close $handle1
+	puts $file1 "End of test44"
+}
+
+proc test45 { rip file1 } {
+	global i
+	global filter 
+	global count 
+	global snaplen
+	puts $file1 "start of test45 : capturing packets with promiscuous mode OFF with callback function \n"
+	set handle2 [tcap open -host $rip -port $i]
+	tcap set $handle2 -filter $filter 
+	tcap set $handle2 -count $count 
+	tcap set $handle2 -promiscuous n 
+	tcap set $handle2 -ca {puts $file1 "%H %D"}
+	tcap loop $handle2
+	puts $file1 "loop stored"
+	tcap close $handle2
+	puts $file1 "End of test45"
+}
+
+proc test46 { rip file1 } { 
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "Start of test46 : capturing packets with promiscuous mode OFF \n"
+	set handle3 [tcap open -host $rip -port $i]
+	tcap set $handle3 -filter $filter 
+	tcap set $handle3 -promiscuous n 
+	set frame [tcap capture $handle3]
+	puts $file1 $frame 
+	tcap close $handle3
+	puts $file1 "End of test46 \n"
+}
+
+proc test47 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "Start of test47 :capturing packets with time-out of 2000 ms \n"
+	set handle4 [tcap open -host $rip -port $i]
+	tcap set $handle4 -filter $filter 
+	tcap set $handle4 -count $count 
+	tcap set $handle4 -timeout 5000 
+	tcap set $handle4 -ca {puts $file1 "%H %D"}
+	tcap loop $handle4
+	puts $file1 "loop stored"
+	tcap close $handle4 
+	puts $file1 "End of test47 \n"
+}
+
+proc test48 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "start of test48 :capturing packets with hexadecimal and promiscuous mode ON \n"
+	set handle5 [tcap open -host $rip -port $i]
+	tcap set $handle5 -filter $filter 
+	tcap set $handle5 -count $count 
+	tcap set $handle5 -timeout 5000 
+	tcap set $handle5 -format hex 
+	tcap set $handle5 -promiscuous y 
+	tcap set $handle5 -ca {puts $file "%D"}
+	tcap loop $handle5
+	puts $file1 "loop stored"
+	tcap close $handle5 
+	puts $file1 "End of test48 \n"
+}
+
+proc test49 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "Start of test49 :capturing packets with decimal format and promiscuous mode OFF \n"
+	set handle6 [tcap open -host $rip -port $i]
+	tcap set $handle6 -filter $filter 
+	tcap set $handle6 -count $count 
+	tcap set $handle6 -format dec 
+	tcap set $handle6 -promiscuous n 
+	tcap set $handle6 -ca {puts $file "%H"}
+	tcap loop $handle6
+	puts $file1 "loop stored"
+	tcap close $handle6
+	puts $file1 "End of test49 \n"
+}
+
+proc test50 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "Start of test50 :capturing packets with only decimal format \n"
+	set handle7 [tcap open -host $rip -port $i]
+	tcap set $handle7 -filter $filter 
+	tcap set $handle7 -count $count 
+	tcap set $handle7 -format dec 
+	tcap set $handle7 -ca {puts $file "%D"}
+	tcap loop $handle7
+	puts $file1 "loop stored"
+	tcap close $handle7
+	puts $file1 "End of test50 \n"
+}
+
+proc test51 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "Stats for handle \n"
+	set handle [tcap open -host $rip -port $i ]
+	set stat [tcap stats $handle ]
+	puts $file1 $stat
+	tcap close $handle 
+	puts $file1 "End of stats test51 \n"
+}
+
+
+proc test52 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "Start of test52 for calling a proc inside callback function \n"
+	set handle [tcap open -host $rip -port $i]
+	tcap set $handle -filter $filter 
+	tcap set $handle -snaplen 65535 
+	set frame [tcap capture $handle]
+	puts $file1 $frame
+	tcap close $handle 
+	puts $file1 "End of Proc test52 \n"
+}
+
+proc test53 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	set handle [tcap open -host $rip -port $i]
+	tcap set $handle -count $count 
+	tcap set -ca {test36 $rip $file1}
+	tcap loop $handle
+	puts $file1 "loop stored"
+	puts $file1 "End of call back proc test53 \n"
+}
+
+
+#Calling various other parameters in callback function .
+#for example calling puts $file1 $rip in call back function.
+proc test55 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "Start of test55 with callback function for redirecting the Result to a file1 \n"
+	set handle [tcap open -host $rip -port $i]
+	tcap set $handle -count $count
+	tcap set -filter $filter 
+	tcap set -ca {puts $file1 "%D"}
+	tcap loop $handle
+	puts $file1 "Loop stored"
+	tcap close $handle 
+	puts  $file1 "End of Test55 \n"
+}
+
+
+
+proc test56 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "Error in sending pkt data to remote machine \n"
+	if {[catch {set handle [tcap open -ip $rip]} errMsg]} {
+		puts $file1 "Error in input plz check rpcapd runs on remote : $errMsg"
+	}
+		
+	if {[catch {[tcap send $handle "01 00 11 ff 04 5e"]} errMsg]} {
+		puts $file1 "Error opening the remote host could not find interface :$errMsg"
+	}
+		puts $file1 "End of test56 \n"
+}
+
+proc test57 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "Listing interface on remote machine using tcap \n"
+	set handle [tcap open -host $rip -port $i]
+	set list [tcap list -rip $rip]
+	puts $file1 $list 
+	
+	if {[catch {[tcap list -ip 192.168.1.8]} errMsg]} {
+		puts $file1 " Wrong Args Valid Arg is tcap list -rip $rip \n"
+	}
+		tcap close $handle 
+	puts $file1 "End of test57 \n"
+}	
+
+proc test58 { file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	set handle1 [tcap open -i6 $ipv6]
+	puts $file1 "Capture using IPV6 :$ipv6"
+	set frame [tcap capture $handle1]
+	puts $file1 $frame 
+	tcap close $handle1
+}
+	
+proc test59 { rip file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "Automated Testing on remote machine "
+	set handle [tcap open -host $rip -port $i]
+	tcap set $handle -filter $filter
+	tcap set $handle -promiscuous y
+	tcap set $handle -timeout $timeout
+	set frame [tcap capture $handle]
+	puts $file1 $frame
+	set lin [lindex $frame 1]
+	
+	if {[lindex $lin 23] == "08"} { 
+		puts $file1 "The frame captured is of $filter"
+		} else {
+		if {[lindex $lin 23] == "06"} {
+		puts $file1 "The frame captured is of $filter stream"
+		} else {
+		puts $file1 "The captured frame is of other protocol"
+		}
+	}
+	
+	tcap close $handle 
+	puts $file1 "End of test"
+}
+	
+proc test60 { id file1 } {
+	global version
+	global filter
+	global snaplen
+	global timeout
+	global ipv6
+	global id 
+	global count 
+	global i
+	global lip
+	global rip
+	puts $file1 "setting up of handle with only one parameter"
+	set handle [tcap open -if $id]
+	if {[catch {tcap set $handle -filter $filter -count 5 -ca {puts "%D"}} errMsg]} {
+		puts $file1 "Set one parameter for each argument :$errMsg"
+		}
+	tcap close $handle
+	puts $file1 "End of test60"
+}
+
+
+
+	
+
+	
+	 
+
+
+
+	
+
+	

@@ -1,0 +1,67 @@
+# Load the library
+load tcap
+
+# Initialize arguments
+set if 3
+set ip 192.168.1.3
+set rmt 192.168.1.2
+set rport 3000
+set filter icmp
+set count 3
+set ip6 fe80::dd70:1372:ca85:8e4e%11
+
+# Some simple tests without engaging network interface
+
+tcap help
+tcap list
+tcap version
+set h [tcap open -if $if]
+set c [tcap open -if $if]
+tcap set $h -filter $filter
+tcap set $h -count $count
+tcap set $h -ca "puts %H"
+tcap info
+tcap show
+tcap info $h
+tcap show $h
+tcap handle
+tcap close $c
+
+# Capturing from a file
+set f [tcap open -in tcap0DumpFile]
+tcap capture $f
+
+# Some significant tests
+# Start petual ping(ping -t 192.168.1.2)  to remote host
+tcap capture $h
+tcap loop $h
+
+set hip [tcap open -ip $ip]
+tcap capture $h
+
+# Even more signficant tests
+tcap list -host $rmt -port $rport
+set r [tcap open -host $rmt -port $rport]
+
+tcap set $r -filter $filter
+tcap set $r -count $count
+tcap set $r -ca "puts %H"
+tcap loop $r
+tcap close $hip
+
+# Packet send
+tcap send $h "1 2 3 4 5 6 7 8 9 a b c d e f"
+tcap stats $r
+
+# IPv6 Interface
+set i6 [tcap open -i6 $ip6]
+tcap set $i6 -filter icmp
+tcap set $i6 -count 3
+tcap set $i6 -ca "puts %D"
+tcap loop $i6
+
+# Error cases
+tcap shew
+tcap open -hari 4
+tcap info Tcap
+

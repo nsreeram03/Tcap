@@ -1,0 +1,47 @@
+Tcap Version Control 
+Copyright (c) 2005-2006 Netprowise Consulting.
+Tcap version Tcap 1.2
+date of release :- 
+
+New Features 
+	1. Modified View of help command ,users can now see the tcap help message 
+	   by using tcap ? parameter . 
+	2. Opening of handle using interface number of local host .
+	3. Supports active tcl and scotty of all version ranging from 8.4 to 8.6 32bit and 64 bit .
+	4. Supports ipv6 .
+
+Bugs fixed 
+		1. EOF problem fixed with offline file capture  .
+        2. Whitespace and indentations cleaned to some extent .
+        3. Handle validation bug fixed - returning 0xff instead of -1 .
+        4. close tcap was closing tcap0, due to bug in TcapCheckHndl function .
+		5. Version command was returning non-list results due to missing space after Tcap .
+		6. Info command also had similar problem - incorrect list structure .
+
+
+
+Credits
+
+Tcap portnumber 
+Hard coded portnumber 2002 is removed . User can define the port number of remote machine .
+Code Developed By M.Vinodh Senior Developer,Netprowise Consulting Organization .
+
+Tcap handle open using interface(if)
+Opening of handle for capture using interface number .
+Code Developed BY M.Vinodh Senior Developer,Netprowise Consulting Organization . 
+
+Tcap support for ipv6 
+Support for ipv6 code developed by Dr T.S.Hari Narayanan,Director Netprowise Consulting Organization .
+
+
+
+
+
+
+
+
+
+
+
+
+
